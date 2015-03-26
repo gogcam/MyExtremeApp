@@ -18,6 +18,9 @@
     <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="views\Trackers.dxview">
+      <SubType>Content</SubType>
+    </Content>
     <TypeScriptCompile Include="index.ts" />
     <Content Include="index.d.ts" />
     <Content Include="index.html" />
@@ -79,6 +82,7 @@
     <Content Include="views\about.html" />
     <Content Include="views\blank.html" />
     <Content Include="app.config.js" />
+    <TypeScriptCompile Include="views\Trackers.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />

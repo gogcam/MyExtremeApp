@@ -1,0 +1,6 @@
+﻿<div data-options="dxView : { name: 'Trackers', title: 'Trackers' } " >
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <p style="padding: 5px">To learn more about DevExtreme, check out the <a href="http://go.devexpress.com/DevExtreme_LearningCenter.aspx">Learning Center</a>.</p>
+        <p style="padding: 5px">Note: To disable the simulator debugging environment, set the project's 'Run in Simulator' property to false.</p>
+    </div>
+</div>
