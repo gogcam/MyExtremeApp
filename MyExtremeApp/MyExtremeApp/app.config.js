@@ -17,7 +17,7 @@ window.MyExtremeApp = $.extend(true, window.MyExtremeApp, {
         "title": "Trackers",
         "onExecute": "#Trackers",
         "icon": "trackers"
-      }
+      },
     ]
   }
 });

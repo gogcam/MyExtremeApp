@@ -48,7 +48,8 @@ module MyExtremeApp {
             layoutSet: DevExpress.framework.html.layoutSets[config.layoutSet],
             commandMapping: config.commandMapping
         });
-        app.router.register(":view/:id", { view: "home", id: undefined });
+        app.router.register(":view/:obj", { view: "home", obj: undefined });
+        //app.router.register(":view/:id", { view: "home", id: undefined });
         MyExtremeApp.app.on("navigatingBack", onNavigatingBack);
         app.navigate();
     });

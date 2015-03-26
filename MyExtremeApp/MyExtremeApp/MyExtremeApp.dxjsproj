@@ -18,9 +18,18 @@
     <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="js\knockout.mapping-latest.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TrackerEdit.dxview">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\Trackers.dxview">
       <SubType>Content</SubType>
     </Content>
+    <TypeScriptCompile Include="data\Globals.ts" />
+    <TypeScriptCompile Include="data\TrackerManager.ts" />
+    <TypeScriptCompile Include="data\TrackerType.ts" />
     <TypeScriptCompile Include="index.ts" />
     <Content Include="index.d.ts" />
     <Content Include="index.html" />
@@ -78,10 +87,12 @@
     <Content Include="ts\knockout.d.ts" />
     <Content Include="views\home.dxview" />
     <Content Include="views\home.css" />
+    <TypeScriptCompile Include="ts\knockout.mappings.d.ts" />
     <TypeScriptCompile Include="views\home.ts" />
     <Content Include="views\about.html" />
     <Content Include="views\blank.html" />
     <Content Include="app.config.js" />
+    <TypeScriptCompile Include="views\TrackerEdit.ts" />
     <TypeScriptCompile Include="views\Trackers.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +108,7 @@
     <Folder Include="layouts\Simple\" />
     <Folder Include="layouts\SlideOut\" />
     <Folder Include="layouts\Split\" />
+    <Folder Include="data" />
     <Folder Include="ts\" />
     <Folder Include="views\" />
   </ItemGroup>

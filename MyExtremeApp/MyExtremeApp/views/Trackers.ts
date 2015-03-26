@@ -1,7 +1,20 @@
-﻿module MyExtremeApp {
+﻿/// <reference path="../data/Globals.ts" />
+module MyExtremeApp {
     export function Trackers(params: { id: any }) {
         return {
-            //  Put the binding properties here
+            dsTrackers: new DevExpress.data.DataSource({
+                store: MyGlobals.MyGlobals.oTrackerManager.getTrackerCustomStore(),
+                searchExpr: "Bezeichnung"
+            }),
+
+            onItemClick: function (e) {
+                MyExtremeApp.app.navigate({ view: 'TrackerEdit', obj: e.itemData });
+            },
+
+            viewShown: function (e) {
+                if (e.direction == 'backward')
+                    this.dsTrackers.load();
+            },
         };
     }
 }
