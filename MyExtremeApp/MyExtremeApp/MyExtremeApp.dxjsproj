@@ -30,6 +30,7 @@
     <Content Include="views\Trackers.dxview">
       <SubType>Content</SubType>
     </Content>
+    <TypeScriptCompile Include="data\db.ts" />
     <TypeScriptCompile Include="data\Globals.ts" />
     <TypeScriptCompile Include="data\TrackerManager.ts" />
     <TypeScriptCompile Include="data\TrackerType.ts" />
