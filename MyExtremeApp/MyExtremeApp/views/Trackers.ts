@@ -7,6 +7,10 @@ module MyExtremeApp {
                 searchExpr: "Bezeichnung"
             }),
 
+            btnAddClick: function (e) {
+                MyExtremeApp.app.navigate({ view: 'TrackerAdd' });
+            },
+
             onItemClick: function (e) {
                 MyExtremeApp.app.navigate({ view: 'TrackerEdit', obj: e.itemData });
             },
@@ -22,6 +26,10 @@ module MyExtremeApp {
                 this.searchString('');
             },
             showSearch: ko.observable(false),
+
+            valueChanged: function (e) {
+                alert('test');
+            }
         };
 
         ko.computed(() => {

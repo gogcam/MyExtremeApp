@@ -1,7 +1,9 @@
 <div data-options="dxView : { name: 'Trackers', title: 'Trackers', icon: 'find', action: undefined } ">
-    <div data-bind="dxCommand: { id: 'search', title: 'Search', placeholder: 'Search...', icon: 'find', action: find }"></div>
+    <div data-bind="dxCommand: { id: 'AddTracker', title: '', icon: 'add', onExecute: btnAddClick }">
+    </div><div data-bind="dxCommand: { id: 'search', title: '', placeholder: 'Search...', icon: 'find', action: find }"></div>
+    <!--<div data-bind="dxCommand: { title: 'Add', onExecute: btnAddClick, icon:'add', id: 'edit' }"></div>-->
     <div data-options="dxContent : { targetPlaceholder: 'content' } ">
-        <div data-bind="dxTextBox: { mode: 'search', value: searchString, visible: showSearch, valueChangeEvent: 'search change keyup' }"></div>
+        <div data-bind="dxTextBox: { mode: 'search', placeholder: 'Tracker suchen', value: searchString, visible: showSearch, valueChangeEvent: 'search change keyup' }"></div>
         <div data-bind="dxList:{ dataSource: dsTrackers,  pullRefreshEnabled: true, itemClickAction: onItemClick, autoPagingEnabled: false }">
             <div data-options="dxTemplate:{ name:'item' }">
                 <img data-bind="attr: { src: 'data:image/png;base64,' + Icon}" />

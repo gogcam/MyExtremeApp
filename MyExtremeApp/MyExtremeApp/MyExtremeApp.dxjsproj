@@ -21,6 +21,12 @@
     <Content Include="js\knockout.mapping-latest.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\GPSSystems.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\TrackerAdd.dxview">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\TrackerEdit.dxview">
       <SubType>Content</SubType>
     </Content>
@@ -29,6 +35,7 @@
     </Content>
     <TypeScriptCompile Include="data\db.ts" />
     <TypeScriptCompile Include="data\Globals.ts" />
+    <TypeScriptCompile Include="data\GPSSystemManager.ts" />
     <TypeScriptCompile Include="data\TrackerManager.ts" />
     <TypeScriptCompile Include="data\TrackerType.ts" />
     <TypeScriptCompile Include="index.ts" />
@@ -89,10 +96,12 @@
     <Content Include="views\home.dxview" />
     <Content Include="views\home.css" />
     <TypeScriptCompile Include="ts\knockout.mappings.d.ts" />
+    <TypeScriptCompile Include="views\GPSSystems.ts" />
     <TypeScriptCompile Include="views\home.ts" />
     <Content Include="views\about.html" />
     <Content Include="views\blank.html" />
     <Content Include="app.config.js" />
+    <TypeScriptCompile Include="views\TrackerAdd.ts" />
     <TypeScriptCompile Include="views\TrackerEdit.ts" />
     <TypeScriptCompile Include="views\Trackers.ts" />
   </ItemGroup>

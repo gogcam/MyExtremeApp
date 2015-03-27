@@ -8,6 +8,10 @@ module MyExtremeApp {
         return {
             test: t,
 
+            dsGPSSystems: new DevExpress.data.DataSource({
+                store: MyGlobals.oGPSSystemsManager.getGPSSystemsCustomStore()
+            }),
+
             btnSaveClick: function (e) {
                 var request = ko.mapping.toJS(this.test);
 

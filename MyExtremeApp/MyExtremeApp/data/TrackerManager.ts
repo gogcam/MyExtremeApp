@@ -13,10 +13,8 @@ class TrackerManager {
     public _dbOptions: DevExpress.data.CustomStoreOptions;
     //private SERVICE_URL_GET_TRACKERS: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/GetTrackers/%7B%22KundenNr%22:%2236373%22,%22Domain%22:%22KMUmitKST14%22%7D'
     //private SERVICE_URL_UPDATE_TRACKER: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/UpdateTracker'
-    //private SERVICE_URL_GET_GPSSYSTEMS: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/GetGPSSystems'
     private SERVICE_URL_GET_TRACKERS: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/GetTrackers/%7B%22KundenNr%22:%2236373%22,%22Domain%22:%22KMUmitKST14%22%7D'
     private SERVICE_URL_UPDATE_TRACKER: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/UpdateTracker'
-    private SERVICE_URL_GET_GPSSYSTEMS: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/GetGPSSystems'
 
     constructor() {
         this.initTrackersCustomStoreSettings();

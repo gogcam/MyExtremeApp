@@ -1,13 +1,9 @@
-<div data-options="dxView : { name: 'TrackerEdit', title: 'TrackerEdit', disableCache: true} ">
-    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
+<div data-options="dxView : { name: 'TrackerAdd', title: 'TrackerAdd', disableCache: true } ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' }" data-bind="dxScrollView: { }">
         <div class="dx-fieldset">
             <div class="dx-field">
-                <div class="dx-field-label">ID_Tracker</div>
-                <div class="dx-field-value" data-bind="dxTextBox: {value: test.ID, disabled: true}"></div>
-            </div>
-            <div class="dx-field">
                 <div class="dx-field-label">INR</div>
-                <div class="dx-field-value" data-bind="dxTextBox: {value: test.INR,  disabled: true}"></div>
+                <div class="dx-field-value" data-bind="dxTextBox: {value: test.INR}"></div>
             </div>
             <div class="dx-field">
                 <div class="dx-field-label">Bezeichnung</div>
@@ -26,7 +22,7 @@
             </div>
             <div class="dx-field">
                 <div class="dx-field-label">GPS-System</div>
-                <div class="dx-field-value" data-bind="dxLookup:{ dataSource: dsGPSSystems, value:test.ID_GPSSystem, displayExpr: 'Bezeichnung', valueExpr: 'ID', title: 'GPS Systeme'}"></div>
+                <div class="dx-field-value" data-bind="dxSelectBox:{ dataSource: dsGPSSystems, value:test.ID_GPSSystem, displayExpr: 'Bezeichnung', valueExpr: 'ID', title: 'GPS Systeme'}"></div>
             </div>
             <div class="dx-field">
                 <div class="dx-field-label">Max. Ausreisezeit</div>
@@ -42,6 +38,6 @@
         Max. Ausreisezeit:<div data-bind="dxNumberBox:{min:0, max:100, value:MaxRunawayTime, showSpinButtons: true}"></div>-->
         <!--<img data-bind="attr: { src: 'data:image/png;base64,' + test.Icon}" />-->
         <br />
-        <div data-bind="dxButton: {text: 'Save', onClick: btnSaveClick}"></div>
+        <div data-bind="dxButton: {text: 'Save', onClick: btnSaveClick, icon: 'plus'}"></div>
     </div>
 </div>

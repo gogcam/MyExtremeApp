@@ -1,0 +1,10 @@
+<div data-options="dxView : { name: 'GPSSystems', title: 'GPSSystems' } ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
+        <div data-bind="dxList:{ dataSource: listDataSource,  pullRefreshEnabled: true }">
+            <div data-options="dxTemplate:{ name:'item' }">
+                <h1 data-bind="text: Bezeichnung"></h1>
+                <p><b>ID</b>: <i data-bind="text: ID"></i></p>
+            </div>
+        </div>
+    </div>
+</div>
