@@ -24,6 +24,9 @@
     <Content Include="views\TrackerEdit.dxview">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\TrackerEdit.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\Trackers.dxview">
       <SubType>Content</SubType>
     </Content>
@@ -92,7 +95,6 @@
     <Content Include="views\about.html" />
     <Content Include="views\blank.html" />
     <Content Include="app.config.js" />
-    <TypeScriptCompile Include="views\TrackerEdit.ts" />
     <TypeScriptCompile Include="views\Trackers.ts" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,47 @@
+<div data-options="dxView : { name: 'TrackerEdit', title: 'TrackerEdit', disableCache: true} ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
+        <div class="dx-fieldset">
+            <div class="dx-field">
+                <div class="dx-field-label">ID_Tracker</div>
+                <div class="dx-field-value" data-bind="dxTextBox: {value: test.ID, disabled: true}"></div>
+            </div>
+            <div class="dx-field">
+                <div class="dx-field-label">INR</div>
+                <div class="dx-field-value" data-bind="dxTextBox: {value: test.INR,  disabled: true}"></div>
+            </div>
+            <div class="dx-field">
+                <div class="dx-field-label">Bezeichnung</div>
+                <div class="dx-field-value" data-bind="dxTextBox: {value: test.Bezeichnung}"></div>
+            </div>
+        </div>
+
+        <div class="dx-fieldset">
+            <div class="dx-field">
+                <div class="dx-field-label">Stamm</div>
+                <div class="dx-field-value" data-bind="dxTextBox: {value: test.Stamm}"></div>
+            </div>
+            <div class="dx-field">
+                <div class="dx-field-label">SerialNumber</div>
+                <div class="dx-field-value" data-bind="dxTextBox: {value: test.SerialNumber}"></div>
+            </div>
+            <!--<div class="dx-field">
+                <div class="dx-field-label">GPS-System</div>
+                <div class="dx-field-value" data-bind="dxLookup:{ dataSource: dsGPSSystems, value:test.ID_GPSSystem, displayExpr: 'Bezeichnung', valueExpr: 'ID', title: 'GPS Systeme'}"></div>
+            </div>-->
+            <div class="dx-field">
+                <div class="dx-field-label">Max. Ausreisezeit</div>
+                <div class="dx-field-value" data-bind="dxNumberBox:{min:0, max:100, value:test.MaxRunawayTime, showSpinButtons: true}"></div>
+            </div>
+            <div class="dx-field">
+                <div class="dx-field-label">Run1AsRunTime</div>
+                <div class="dx-field-value" data-bind="dxSwitch:{value:test.Run1AsRunTime}"></div>
+            </div>
+        </div>
+
+        <!--Bezeichnung:<div data-bind="dxTextBox: {value: Bezeichnung}"></div>
+        Max. Ausreisezeit:<div data-bind="dxNumberBox:{min:0, max:100, value:MaxRunawayTime, showSpinButtons: true}"></div>-->
+        <!--<img data-bind="attr: { src: 'data:image/png;base64,' + test.Icon}" />-->
+        <br />
+        <div data-bind="dxButton: {text: 'Save', onClick: btnSaveClick}"></div>
+    </div>
+</div>
