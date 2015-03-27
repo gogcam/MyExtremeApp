@@ -3,7 +3,7 @@ module MyExtremeApp {
     export function Trackers(params: { id: any }) {
         return {
             dsTrackers: new DevExpress.data.DataSource({
-                store: MyGlobals.MyGlobals.oTrackerManager.getTrackerCustomStore(),
+                store: MyGlobals.oTrackerManager.getTrackerCustomStore(),
                 searchExpr: "Bezeichnung"
             }),
 

@@ -1,9 +1,10 @@
 ﻿/// <reference path="db.ts" />
+/// <reference path="Globals.ts" />
 
 interface loadResponse {
-    TrackerList: TrackerType[];
-    StatusCode: number;
-    StatusMessage: string;
+    TrackerList?: TrackerType[];
+    StatusCode?: number;
+    StatusMessage?: string;
 }
 
 class TrackerManager {
@@ -24,81 +25,32 @@ class TrackerManager {
     private initTrackersCustomStoreSettings(): void {
         this._dbOptions = {
             load: (loadOptions) => {
-                return this.SendRequestLoad(this.SERVICE_URL_GET_TRACKERS, 'GET');
-            },
-            update: (params) => {
-                //postJson(SERVICE_URL_UPDATE_TRACKER, params, undefined, undefined);
-                return this.SendRequest(this.SERVICE_URL_UPDATE_TRACKER, 'POST', params);
-            },
-            insert: (params) => {
-                //postJson(SERVICE_URL_UPDATE_TRACKER, params, undefined, undefined);
-                var mydb = new db.db();
-                var json_data = JSON.stringify(params);
-                json_data = '{"Tracker":' + json_data + '}';
-                var deferred: JQueryDeferred<any> = mydb.SendRequest_POST(this.SERVICE_URL_UPDATE_TRACKER, json_data);
+                function onComplete(data: any) {
+                    deferred.resolve(data.TrackerList);
+                }
+                var deferred: JQueryDeferred<any> = MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null);
 
                 return deferred;
+            },
+            //update: (params) => {
+            //    //postJson(SERVICE_URL_UPDATE_TRACKER, params, undefined, undefined);
+            //    return this.SendRequest(this.SERVICE_URL_UPDATE_TRACKER, 'POST', params);
+            //},
+            insert: (params) => {
+                function onComplete(data: any) {
+                    deferred.resolve(data);
+                }
 
-                //return this.SendRequest(this.SERVICE_URL_UPDATE_TRACKER, 'POST', params);
+                var json_data = JSON.stringify(params);
+                json_data = '{"Tracker":' + json_data + '}';
+                var deferred: JQueryDeferred<any> = MyGlobals.mydb.SendRequest_POST(onComplete, this.SERVICE_URL_UPDATE_TRACKER, json_data);
+
+                return deferred;
             },
             //remove: (params) => {
             //    //return dbImpl._sendRequest('DELETE', params);
             //}
         };
-    }
-
-    public SendRequest(url: string, methodType: string, params?: any): any {
-        var deferred: JQueryDeferred<void> = jQuery.Deferred<void>();
-        //var deferred = new $.Deferred();
-
-        var requestSettings: any = {
-            url: $.trim(url),
-            type: methodType,
-            success: function (data) {
-                var x = data;
-                deferred.resolve(data);
-            }
-        };
-
-        if (params) {
-            var json_data = JSON.stringify(params);
-            json_data = '{"Tracker":' + json_data + '}';
-
-            requestSettings.contentType = 'application/json';
-            requestSettings.dataType = "Text";
-            requestSettings.data = json_data;
-        }
-
-        $.ajax(requestSettings);
-
-        return deferred;
-    }
-
-    public SendRequestLoad(url: string, methodType: string, params?: any): JQueryDeferred<any> {
-        var deferred: JQueryDeferred<any> = jQuery.Deferred<any>();
-        //var deferred = new $.Deferred();
-
-        var requestSettings: any = {
-            url: $.trim(url),
-            type: methodType,
-            success: function (data: loadResponse) {
-                var x = data;
-                deferred.resolve(data.TrackerList);
-            }
-        };
-
-        if (params) {
-            var json_data = JSON.stringify(params);
-            json_data = '{"Tracker":' + json_data + '}';
-
-            requestSettings.contentType = 'application/json';
-            requestSettings.dataType = "Text";
-            requestSettings.data = json_data;
-        }
-
-        $.ajax(requestSettings);
-
-        return deferred;
     }
 
     public getTrackerCustomStore(): DevExpress.data.CustomStore {
@@ -107,7 +59,6 @@ class TrackerManager {
     }
 
     public updateTracker(request: any): JQueryPromise<JSON> {
-        //return this._csTrackers.update(request, undefined);
         return this._csTrackers.insert(request);
     }
 }
