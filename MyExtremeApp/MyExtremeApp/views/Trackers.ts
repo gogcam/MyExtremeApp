@@ -15,6 +15,23 @@ module MyExtremeApp {
                 if (e.direction == 'backward')
                     this.dsTrackers.load();
             },
+
+            searchString: ko.observable(''),
+            find: function () {
+                this.showSearch(!this.showSearch());
+                this.searchString('');
+            },
+            showSearch: ko.observable(false),
         };
+
+        ko.computed(() => {
+            return this.searchString();
+        }).extend({
+            throttle: 500
+        }).subscribe(function (value) {
+            this.dsTrackers.filter("Bezeichnung", "contains", value);
+            this.dsTrackers.pageIndex(0);
+            this.dsTrackers.load();
+        });
     }
 }

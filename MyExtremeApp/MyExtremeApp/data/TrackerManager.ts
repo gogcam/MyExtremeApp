@@ -24,11 +24,25 @@ class TrackerManager {
 
     private initTrackersCustomStoreSettings(): void {
         this._dbOptions = {
-            load: (loadOptions) => {
+            load: (loadOptions: DevExpress.data.LoadOptions) => {
                 function onComplete(data: any) {
                     deferred.resolve(data.TrackerList);
                 }
-                var deferred: JQueryDeferred<any> = MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null);
+                var deferred: JQueryDeferred<any> = MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null).done(function (data) {
+                    var query = DevExpress.data.query(data);
+
+                    if (loadOptions.filter) {
+                        var l = [];
+                        l.push(loadOptions.filter);
+
+                        if (loadOptions.filter)
+                            query = query.filter(l);
+                    }
+
+                    query = query.sortBy("Bezeichnung");
+                    
+                    deferred.resolve(query.toArray());
+                });
 
                 return deferred;
             },

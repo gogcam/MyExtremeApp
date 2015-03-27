@@ -1,11 +1,13 @@
-<div data-options="dxView : { name: 'Trackers', title: 'Trackers' } " >
+<div data-options="dxView : { name: 'Trackers', title: 'Trackers', icon: 'find', action: undefined } ">
+    <div data-bind="dxCommand: { id: 'search', title: 'Search', placeholder: 'Search...', icon: 'find', action: find }"></div>
     <div data-options="dxContent : { targetPlaceholder: 'content' } ">
+        <div data-bind="dxTextBox: { mode: 'search', value: searchString, visible: showSearch, valueChangeEvent: 'search change keyup' }"></div>
         <div data-bind="dxList:{ dataSource: dsTrackers,  pullRefreshEnabled: true, itemClickAction: onItemClick, autoPagingEnabled: false }">
             <div data-options="dxTemplate:{ name:'item' }">
                 <img data-bind="attr: { src: 'data:image/png;base64,' + Icon}" />
                 <p data-bind="text: Bezeichnung"></p>
                 <p><b>ID_Tracker</b>: <i data-bind="text: ID"></i></p>
-            </div>6
+            </div>
         </div>
     </div>
 </div>
