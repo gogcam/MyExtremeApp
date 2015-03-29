@@ -1,5 +1,5 @@
 <div data-options="dxView : { name: 'TrackerEdit', title: 'TrackerEdit', disableCache: true} ">
-    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " data-bind="dxScrollView: { }">
         <div class="dx-fieldset">
             <div class="dx-field">
                 <div class="dx-field-label">ID_Tracker</div>
