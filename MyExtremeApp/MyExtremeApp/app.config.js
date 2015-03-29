@@ -9,19 +9,19 @@ window.MyExtremeApp = $.extend(true, window.MyExtremeApp, {
         "icon": "home"
       },
       {
-        "title": "About",
-        "action": "#about",
-        "icon": "info"
-      },
-      {
         "title": "Trackers",
         "onExecute": "#Trackers",
-        "icon": "trackers"
+        "icon": "user"
       },
       {
-        "title": "GPSSystems",
+        "title": "GPS-Systeme",
         "onExecute": "#GPSSystems",
-        "icon": "gpssystems"
+        "icon": "preferences"
+      },
+      {
+          "title": "About",
+          "action": "#about",
+          "icon": "info"
       }
     ],
     "commandMapping": {

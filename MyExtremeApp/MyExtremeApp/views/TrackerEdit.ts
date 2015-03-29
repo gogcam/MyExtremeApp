@@ -1,4 +1,5 @@
 ﻿/// <reference path="../ts/knockout.mappings.d.ts" />
+/// <reference path="../data/TrackerType.ts" />
 
 module MyExtremeApp {
     export function TrackerEdit(params: { obj: any }) {

@@ -11,10 +11,10 @@ class TrackerManager {
 
     public _csTrackers: DevExpress.data.CustomStore;
     public _dbOptions: DevExpress.data.CustomStoreOptions;
-    //private SERVICE_URL_GET_TRACKERS: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/GetTrackers/%7B%22KundenNr%22:%2236373%22,%22Domain%22:%22KMUmitKST14%22%7D'
-    //private SERVICE_URL_UPDATE_TRACKER: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/UpdateTracker'
-    private SERVICE_URL_GET_TRACKERS: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/GetTrackers/%7B%22KundenNr%22:%2236373%22,%22Domain%22:%22KMUmitKST14%22%7D'
-    private SERVICE_URL_UPDATE_TRACKER: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/UpdateTracker'
+    private SERVICE_URL_GET_TRACKERS: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/GetTrackers/%7B%22KundenNr%22:%2236373%22,%22Domain%22:%22KMUmitKST14%22%7D'
+    private SERVICE_URL_UPDATE_TRACKER: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/UpdateTracker'
+    //private SERVICE_URL_GET_TRACKERS: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/GetTrackers/%7B%22KundenNr%22:%2236373%22,%22Domain%22:%22KMUmitKST14%22%7D'
+    //private SERVICE_URL_UPDATE_TRACKER: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/UpdateTracker'
 
     constructor() {
         this.initTrackersCustomStoreSettings();
@@ -23,12 +23,14 @@ class TrackerManager {
     private initTrackersCustomStoreSettings(): void {
         this._dbOptions = {
             load: (loadOptions: DevExpress.data.LoadOptions) => {
+                var d: JQueryDeferred<any> = jQuery.Deferred<any>();
+
                 function onComplete(data: any) {
                     deferred.resolve(data.TrackerList);
                 }
                 var deferred: JQueryDeferred<any> = MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null).done(function (data) {
                     var query = DevExpress.data.query(data);
-
+                  
                     if (loadOptions.filter) {
                         var l = [];
                         l.push(loadOptions.filter);
@@ -36,13 +38,37 @@ class TrackerManager {
                         if (loadOptions.filter)
                             query = query.filter(l);
                     }
-
+                    var x: any = d.state();
+                    var x2: any = deferred.state();
                     query = query.sortBy("Bezeichnung");
-                    
-                    deferred.resolve(query.toArray());
+                  
+                    d.resolve(query.toArray());
                 });
 
-                return deferred;
+                return d;
+
+                //var d = $.Deferred();
+
+                //function onComplete(data: any) {
+                //    d.resolve(data.TrackerList);
+                //}
+                //MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null).done(function (data) {
+                //    var query = DevExpress.data.query(data);
+
+                //    if (loadOptions.filter) {
+                //        var l = [];
+                //        l.push(loadOptions.filter);
+
+                //        if (loadOptions.filter)
+                //            query = query.filter(l);
+                //    }
+
+                //    query = query.sortBy("Bezeichnung");
+
+                //    d.resolve(query.toArray());
+                //});
+
+                //return d;
             },
             //update: (params) => {
             //    //postJson(SERVICE_URL_UPDATE_TRACKER, params, undefined, undefined);

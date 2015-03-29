@@ -1,10 +1,10 @@
 ﻿/// <reference path="../data/Globals.ts" />
 module MyExtremeApp {
     export function Trackers(params: { id: any }) {
-        return {
+
+        var viewModel = {
             dsTrackers: new DevExpress.data.DataSource({
                 store: MyGlobals.oTrackerManager.getTrackerCustomStore(),
-                searchExpr: "Bezeichnung"
             }),
 
             btnAddClick: function (e) {
@@ -31,15 +31,24 @@ module MyExtremeApp {
                 alert('test');
             }
         };
-
+        
         ko.computed(() => {
-            return this.searchString();
+            return viewModel.searchString();
         }).extend({
             throttle: 500
-        }).subscribe(function (value) {
-            this.dsTrackers.filter("Bezeichnung", "contains", value);
-            this.dsTrackers.pageIndex(0);
-            this.dsTrackers.load();
+            }).subscribe((value) => {
+
+            var x: string[] = [];
+            x.push('Bezeichnung');
+            x.push('contains');
+            x.push(value);
+            
+            viewModel.dsTrackers.filter(x);
+            viewModel.dsTrackers.pageIndex(0);
+            viewModel.dsTrackers.load();
+            
         });
+        
+        return viewModel;
     }
 }

@@ -6,7 +6,8 @@
         }
 
         public SendRequest_GET(callback: any, url: string, json_data?: string): JQueryDeferred<any> {
-            var deferred: JQueryDeferred<void> = jQuery.Deferred<void>();
+            var deferred: JQueryDeferred<any> = jQuery.Deferred<any>();
+            //var deferred = jQuery.Deferred();
 
             var requestSettings: any = {
                 url: $.trim(url),

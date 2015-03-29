@@ -18,6 +18,9 @@
     <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="cordova.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="js\knockout.mapping-latest.js">
       <SubType>Content</SubType>
     </Content>

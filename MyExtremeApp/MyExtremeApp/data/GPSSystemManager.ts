@@ -6,8 +6,8 @@ class GPSSystemManager {
     public _csGPSSystem: DevExpress.data.CustomStore;
     public _dataGPSSystem: any;
     public _dbOptions: DevExpress.data.CustomStoreOptions;
-    //private SERVICE_URL_GET_GPSSYSTEMS: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/GetGPSSystems'    
-    private SERVICE_URL_GET_GPSSYSTEMS: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/GetGPSSystems'
+    private SERVICE_URL_GET_GPSSYSTEMS: string = 'http://gpswebservice.sorba.ch/GPSWebService/Sys/rest/GetGPSSystems'    
+    //private SERVICE_URL_GET_GPSSYSTEMS: string = 'http://devsk-nb1-win81/GPSWebService/Sys/rest/GetGPSSystems'
 
     constructor() {
         this.initGPSSystemCustomStoreSettings();
@@ -44,32 +44,32 @@ class GPSSystemManager {
             byKey: (key) => {
                 var dfd = $.Deferred();
 
-                var bla = MyGlobals.oGPSSystemsManager._dataGPSSystem;
+                //var bla = MyGlobals.oGPSSystemsManager._dataGPSSystem;
 
-                for (var i = 0; i < this._dataGPSSystem.length; i++) {
-                    if (this._dataGPSSystem[i].ID == key) {
-                        dfd.resolve({
-                            ID: this._dataGPSSystem[i].ID,
-                            Bezeichnung: this._dataGPSSystem[i].Bezeichnung
-                        });
-                        return;
-                    }
-                }
-                //var x = new DevExpress.data.DataSource({
-                //    store: this._csGPSSystem
-                //});
-
-                //x.load().done(function (result) {
-                //    for (var i = 0; i < result.length; i++) {
-                //        if (result[i].ID == key) {
-                //            dfd.resolve({
-                //                ID: result[i].ID,
-                //                Bezeichnung: result[i].Bezeichnung
-                //            });
-                //            return;
-                //        }
+                //for (var i = 0; i < this._dataGPSSystem.length; i++) {
+                //    if (this._dataGPSSystem[i].ID == key) {
+                //        dfd.resolve({
+                //            ID: this._dataGPSSystem[i].ID,
+                //            Bezeichnung: this._dataGPSSystem[i].Bezeichnung
+                //        });
+                //        return;
                 //    }
-                //});
+                //}
+                var x = new DevExpress.data.DataSource({
+                    store: this._csGPSSystem
+                });
+
+                x.load().done(function (result) {
+                    for (var i = 0; i < result.length; i++) {
+                        if (result[i].ID == key) {
+                            dfd.resolve({
+                                ID: result[i].ID,
+                                Bezeichnung: result[i].Bezeichnung
+                            });
+                            return;
+                        }
+                    }
+                });
 
                 return dfd.promise();
             }
