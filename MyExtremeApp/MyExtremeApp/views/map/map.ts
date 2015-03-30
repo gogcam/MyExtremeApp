@@ -9,7 +9,9 @@ module MyExtremeApp {
             isMapReady: ko.observable(false),
             isDataReady: ko.observable(false),
 
-            mapReady: function () {
+            mapReady: function (s) {
+                //https://www.devexpress.com/Support/Center/Question/Details/KA18782
+                var x = s.originalMap;
                 viewModel.isMapReady(true);
             }
         }
