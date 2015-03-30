@@ -53,4 +53,13 @@ module MyExtremeApp {
         MyExtremeApp.app.on("navigatingBack", onNavigatingBack);
         app.navigate();
     });
+
+    var sCulture: string = navigator.language;
+    if (sCulture == "de-CH") {
+        sCulture = "de";
+    }
+    
+    Globalize.culture(sCulture || navigator.language || navigator.browserLanguage);
+    //Globalize.culture(navigator.language || navigator.browserLanguage);
+    //Globalize.culture("de");
 }

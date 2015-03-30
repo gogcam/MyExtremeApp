@@ -1,4 +1,4 @@
-<div data-options="dxView : { name: 'Trackers', title: 'Trackers', icon: 'find', action: undefined } ">
+<div data-options="dxView : { name: 'Trackers', title: '@evzole', icon: 'find', action: undefined } ">
     <div data-bind="dxCommand: { id: 'AddTracker', title: '', icon: 'add', onExecute: btnAddClick }">
     </div><div data-bind="dxCommand: { id: 'search', title: '', placeholder: 'Search...', icon: 'find', action: find }"></div>
     <!--<div data-bind="dxCommand: { title: 'Add', onExecute: btnAddClick, icon:'add', id: 'edit' }"></div>-->

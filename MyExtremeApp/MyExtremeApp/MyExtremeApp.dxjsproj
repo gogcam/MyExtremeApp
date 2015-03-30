@@ -24,6 +24,12 @@
     <Content Include="js\knockout.mapping-latest.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="js\localization\localization.de.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="js\localization\localization.default.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\GPSSystems.dxview">
       <SubType>Content</SubType>
     </Content>

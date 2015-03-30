@@ -55,6 +55,9 @@ class GPSSystemManager {
                 //        return;
                 //    }
                 //}
+
+                //return dfd.promise();
+
                 var x = new DevExpress.data.DataSource({
                     store: this._csGPSSystem
                 });
