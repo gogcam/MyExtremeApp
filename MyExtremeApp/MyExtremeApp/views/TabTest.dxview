@@ -1,0 +1,9 @@
+<div data-options="dxView : { name: 'TabTest', title: 'Blub' } ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' } ">
+        <div data-bind="dxTabs: {
+            dataSource: tabs,
+            selectedIndex: selectedTab
+        }"></div>
+        <div class="tabContent" data-bind="text: tabContent"></div>
+    </div>
+</div>

@@ -36,8 +36,7 @@ module MyExtremeApp {
             return viewModel.searchString();
         }).extend({
             throttle: 500
-            }).subscribe((value) => {
-
+        }).subscribe((value) => {
             var x: string[] = [];
             x.push('Bezeichnung');
             x.push('contains');

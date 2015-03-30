@@ -51,6 +51,9 @@ module MyExtremeApp {
         app.router.register(":view/:obj", { view: "home", obj: undefined });
         //app.router.register(":view/:id", { view: "home", id: undefined });
         MyExtremeApp.app.on("navigatingBack", onNavigatingBack);
+
+        MyExtremeApp.app.navigation[0].option('badge', 'test');
+
         app.navigate();
     });
 

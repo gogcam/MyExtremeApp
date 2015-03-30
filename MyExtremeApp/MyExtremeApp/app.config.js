@@ -6,7 +6,8 @@ window.MyExtremeApp = $.extend(true, window.MyExtremeApp, {
       {
         "title": "Home",
         "action": "#home",
-        "icon": "home"
+        "icon": "home",
+        "badge": ""
       },
       {
         "title": "Trackers",
@@ -19,9 +20,14 @@ window.MyExtremeApp = $.extend(true, window.MyExtremeApp, {
         "icon": "preferences"
       },
       {
-          "title": "About",
-          "action": "#about",
-          "icon": "info"
+        "title": "About",
+        "action": "#about",
+        "icon": "info"
+      },
+      {
+        "title": "TabTest",
+        "onExecute": "#TabTest",
+        "icon": "tabtest"
       }
     ],
     "commandMapping": {

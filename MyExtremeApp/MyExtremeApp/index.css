@@ -8,3 +8,10 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.tabContent {
+    padding: 20px;
+    height: 400px;
+    margin: 20px;
+    border: 1px solid;
+}
