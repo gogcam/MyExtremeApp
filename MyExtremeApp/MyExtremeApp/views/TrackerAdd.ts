@@ -15,6 +15,7 @@
                 var request = ko.mapping.toJS(this.test);
 
                 MyGlobals.oTrackerManager.updateTracker(request).done(function (data) {
+                    MyGlobals.refreshView = true;
                     MyExtremeApp.app.back();
                 });
             }

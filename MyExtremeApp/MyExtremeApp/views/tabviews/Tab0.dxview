@@ -1,0 +1,12 @@
+<div data-options="dxView : { name: 'Tab0', title: 'Tab0' } ">
+    This is Tab0<br />
+    <div data-bind="dxButton: { text: 'Click Me', onClick: onButtonClick }"></div>
+
+    <div data-bind="dxList:{ dataSource: listDataSource,  pullRefreshEnabled: true }">
+        <div data-options="dxTemplate:{ name:'item' }">
+            <h1 data-bind="text: Bezeichnung"></h1>
+            <p><b>ID</b>: <i data-bind="text: ID"></i></p>
+        </div>
+    </div>
+
+</div>

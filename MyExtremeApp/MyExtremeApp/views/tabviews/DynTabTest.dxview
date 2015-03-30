@@ -1,0 +1,14 @@
+<div data-options="dxView : { name: 'DynTabTest', title: 'Home' } ">
+    <div data-options="dxContent : { targetPlaceholder: 'content' } " data-bind="dxScrollView: { }">
+        <div id="tabs" data-bind="dxTabs: { items: tabs, selectedIndex: selectedTab }"></div>
+        <!-- ko if: selectedTab() == 0 -->
+        <div data-options="dxViewPlaceholder : { viewName: 'Tab0' } "></div>
+        <!-- /ko -->
+        <!-- ko if: selectedTab() == 1 -->
+        <div data-options="dxViewPlaceholder : { viewName: 'Tab1' } "></div>
+        <!-- /ko -->
+        <!-- ko if: selectedTab() == 2 -->
+        <div data-options="dxViewPlaceholder : { viewName: 'Tab2' } "></div>
+        <!-- /ko -->
+    </div>
+</div>

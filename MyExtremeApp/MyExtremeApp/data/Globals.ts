@@ -4,6 +4,8 @@
         public static oGPSSystemsManager: GPSSystemManager = new GPSSystemManager();
         public static mydb = new db();
 
+        public static refreshView: boolean = false;
+
         constructor() {
              
         }

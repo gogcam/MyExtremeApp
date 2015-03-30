@@ -8,6 +8,13 @@
     <ApplicationPage>index.html</ApplicationPage>
     <RootNamespace>MyExtremeApp</RootNamespace>
     <Name>MyExtremeApp</Name>
+    <KeyApkPath>certificates\android_certificate.p12</KeyApkPath>
+    <KeyApkAlias>tmpl</KeyApkAlias>
+    <ApkDexFilePackageName>com.devextreme.MyExtremeApp</ApkDexFilePackageName>
+    <VersionCode>1</VersionCode>
+    <TemplateFileApk />
+    <UseCustomTemplateNameApk>False</UseCustomTemplateNameApk>
+    <KeyDebuggable>False</KeyDebuggable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,7 +40,22 @@
     <Content Include="views\GPSSystems.dxview">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="views\map\map.dxview">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\TabTest.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\tabviews\DynTabTest.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\tabviews\Tab0.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\tabviews\Tab1.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\tabviews\Tab2.dxview">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\TrackerAdd.dxview">
@@ -45,6 +67,10 @@
     <Content Include="views\Trackers.dxview">
       <SubType>Content</SubType>
     </Content>
+    <None Include="Resources\PackageIcons.Android.ic_launcher_36_36.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_48_48.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_72_72.png" />
+    <None Include="Resources\PackageIcons.Android.ic_launcher_96_96.png" />
     <TypeScriptCompile Include="data\db.ts" />
     <TypeScriptCompile Include="data\Globals.ts" />
     <TypeScriptCompile Include="data\GPSSystemManager.ts" />
@@ -54,6 +80,7 @@
     <Content Include="index.d.ts" />
     <Content Include="index.html" />
     <Content Include="index.css" />
+    <None Include="certificates\android_certificate.p12" />
     <None Include="config.xml" />
     <Content Include="css\dx.spa.css" />
     <Content Include="css\dx.common.css" />
@@ -113,12 +140,15 @@
     <Content Include="views\about.html" />
     <Content Include="views\blank.html" />
     <Content Include="app.config.js" />
+    <TypeScriptCompile Include="views\map\map.ts" />
     <TypeScriptCompile Include="views\TabTest.ts" />
+    <TypeScriptCompile Include="views\tabviews\DynTabTest.ts" />
     <TypeScriptCompile Include="views\TrackerAdd.ts" />
     <TypeScriptCompile Include="views\TrackerEdit.ts" />
     <TypeScriptCompile Include="views\Trackers.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="certificates\" />
     <Folder Include="css\" />
     <Folder Include="js\" />
     <Folder Include="js\localization\" />
@@ -132,8 +162,11 @@
     <Folder Include="layouts\SlideOut\" />
     <Folder Include="layouts\Split\" />
     <Folder Include="data" />
+    <Folder Include="Resources\" />
     <Folder Include="ts\" />
     <Folder Include="views\" />
+    <Folder Include="views\map" />
+    <Folder Include="views\tabviews" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

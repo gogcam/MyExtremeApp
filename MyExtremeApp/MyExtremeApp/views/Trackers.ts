@@ -16,8 +16,12 @@ module MyExtremeApp {
             },
 
             viewShown: function (e) {
-                if (e.direction == 'backward')
-                    this.dsTrackers.load();
+                if (e.direction == 'backward') {
+                    if (MyGlobals.refreshView) {
+                        this.dsTrackers.load();
+                        MyGlobals.refreshView = false;
+                    }
+                }
             },
 
             searchString: ko.observable(''),

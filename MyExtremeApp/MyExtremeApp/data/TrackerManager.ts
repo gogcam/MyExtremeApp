@@ -23,14 +23,10 @@ class TrackerManager {
     private initTrackersCustomStoreSettings(): void {
         this._dbOptions = {
             load: (loadOptions: DevExpress.data.LoadOptions) => {
-                var d: JQueryDeferred<any> = jQuery.Deferred<any>();
-
+                var deferred = $.Deferred();
                 function onComplete(data: any) {
-                    deferred.resolve(data.TrackerList);
-                }
-                var deferred: JQueryDeferred<any> = MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null).done(function (data) {
-                    var query = DevExpress.data.query(data);
-                  
+                    var query = DevExpress.data.query(data.TrackerList);
+
                     if (loadOptions.filter) {
                         var l = [];
                         l.push(loadOptions.filter);
@@ -38,23 +34,22 @@ class TrackerManager {
                         if (loadOptions.filter)
                             query = query.filter(l);
                     }
-                    var x: any = d.state();
-                    var x2: any = deferred.state();
+
                     query = query.sortBy("Bezeichnung");
-                  
-                    d.resolve(query.toArray());
-                });
+                    deferred.resolve(query.toArray());
+                }
 
-                return d;
+                MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null);
+                return deferred;
 
-                //var d = $.Deferred();
+                //var d: JQueryDeferred<any> = jQuery.Deferred<any>();
 
                 //function onComplete(data: any) {
-                //    d.resolve(data.TrackerList);
+                //    deferred.resolve(data.TrackerList);
                 //}
-                //MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null).done(function (data) {
+                //var deferred: JQueryDeferred<any> = MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_TRACKERS, null).done(function (data) {
                 //    var query = DevExpress.data.query(data);
-
+                  
                 //    if (loadOptions.filter) {
                 //        var l = [];
                 //        l.push(loadOptions.filter);
@@ -62,9 +57,10 @@ class TrackerManager {
                 //        if (loadOptions.filter)
                 //            query = query.filter(l);
                 //    }
-
+                //    var x: any = d.state();
+                //    var x2: any = deferred.state();
                 //    query = query.sortBy("Bezeichnung");
-
+                  
                 //    d.resolve(query.toArray());
                 //});
 

@@ -19,7 +19,8 @@ module MyExtremeApp {
                 //params.obj.Bezeichnung = viewModel.Bezeichnung();
                 //params.obj.MaxRunawayTime = viewModel.MaxRunawayTime();
 
-                MyGlobals.oTrackerManager.updateTracker(request).done(function(data: JSON) {
+                MyGlobals.oTrackerManager.updateTracker(request).done(function (data: JSON) {
+                    MyGlobals.refreshView = true;
                     MyExtremeApp.app.back();
                 });
             }

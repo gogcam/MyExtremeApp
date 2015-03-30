@@ -4,7 +4,7 @@
     <!--<div data-bind="dxCommand: { title: 'Add', onExecute: btnAddClick, icon:'add', id: 'edit' }"></div>-->
     <div data-options="dxContent : { targetPlaceholder: 'content' } ">
         <div data-bind="dxTextBox: { mode: 'search', placeholder: 'Tracker suchen', value: searchString, visible: showSearch, valueChangeEvent: 'search change keyup' }"></div>
-        <div data-bind="dxList:{ dataSource: dsTrackers,  pullRefreshEnabled: true, itemClickAction: onItemClick, autoPagingEnabled: false }">
+        <div data-bind="dxList:{ dataSource: dsTrackers,  pullRefreshEnabled: true, itemClickAction: onItemClick, autoPagingEnabled: false,editConfig: { selectionEnabled: false }}">
             <div data-options="dxTemplate:{ name:'item' }">
                 <img data-bind="attr: { src: 'data:image/png;base64,' + Icon}" />
                 <p data-bind="text: Bezeichnung"></p>

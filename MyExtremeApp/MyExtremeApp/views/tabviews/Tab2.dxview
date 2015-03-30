@@ -1,0 +1,4 @@
+<div data-options="dxView : { name: 'Tab2', title: 'Tab2' } ">
+    This is Tab2<br />
+    <div data-bind="dxDateBox: { value: currentDate }"></div>
+</div>
