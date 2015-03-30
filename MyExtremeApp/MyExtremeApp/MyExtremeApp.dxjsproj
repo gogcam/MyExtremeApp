@@ -74,6 +74,7 @@
     <TypeScriptCompile Include="data\db.ts" />
     <TypeScriptCompile Include="data\Globals.ts" />
     <TypeScriptCompile Include="data\GPSSystemManager.ts" />
+    <TypeScriptCompile Include="data\MapManager.ts" />
     <TypeScriptCompile Include="data\TrackerManager.ts" />
     <TypeScriptCompile Include="data\TrackerType.ts" />
     <TypeScriptCompile Include="index.ts" />
