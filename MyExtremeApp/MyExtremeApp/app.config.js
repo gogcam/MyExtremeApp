@@ -25,6 +25,11 @@ window.MyExtremeApp = $.extend(true, window.MyExtremeApp, {
         "icon": "bookmark"
       },
       {
+          "title": "TabTest",
+          "onExecute": "#TabTest",
+          "icon": "bookmark"
+      },
+      {
         "title": "map",
         "onExecute": "#map",
         "icon": "map"

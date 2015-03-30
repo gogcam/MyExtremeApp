@@ -63,11 +63,13 @@ class MapManager {
         var deferred = $.Deferred();
         function onComplete(data: any) {
             MyGlobals.oMapManager.mydata = data;
-            var query = DevExpress.data.query(data.PositionDataMobile.markers);
-            deferred.resolve(query.toArray());
+            //var query = DevExpress.data.query(data.PositionDataMobile.markers);
+            //deferred.resolve(query.toArray());
+
+            deferred.resolve(data);
         }
 
-        return MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_POSITION_DATA_MOBILE, null);
-        //return deferred;
+        MyGlobals.mydb.SendRequest_GET(onComplete, this.SERVICE_URL_GET_POSITION_DATA_MOBILE, null);
+        return deferred;
     }
 }
