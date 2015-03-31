@@ -14,8 +14,8 @@ module MyExtremeApp {
 
             mapReady: function (s) {
                 //https://www.devexpress.com/Support/Center/Question/Details/KA18782
-                var map: google.maps.Map = s.originalMap;
-                viewModel.originalMap = map;
+                var test: google.maps.Map = s.originalMap;
+                viewModel.originalMap = test;
                 viewModel.isMapReady(true);
             }
         }
@@ -65,7 +65,6 @@ module MyExtremeApp {
                     var oMap: google.maps.Map = viewModel.originalMap;
 
                     var blub: number = oMap.getZoom();
-                    blub = blub;
                 }
             }
         })
