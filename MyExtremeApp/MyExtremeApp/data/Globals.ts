@@ -1,4 +1,6 @@
-﻿//module MyGlobals {
+﻿/// <reference path="TrackerManager.ts" />
+
+//module MyGlobals {
     class MyGlobals {
         public static oTrackerManager: TrackerManager = new TrackerManager();
         public static oGPSSystemsManager: GPSSystemManager = new GPSSystemManager();

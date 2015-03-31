@@ -135,6 +135,7 @@
     <Content Include="ts\knockout.d.ts" />
     <Content Include="views\home.dxview" />
     <Content Include="views\home.css" />
+    <TypeScriptCompile Include="ts\google.maps.d.ts" />
     <TypeScriptCompile Include="ts\knockout.mappings.d.ts" />
     <TypeScriptCompile Include="views\GPSSystems.ts" />
     <TypeScriptCompile Include="views\home.ts" />
