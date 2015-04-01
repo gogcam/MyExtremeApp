@@ -14,8 +14,7 @@ module MyExtremeApp {
 
             mapReady: function (s) {
                 //https://www.devexpress.com/Support/Center/Question/Details/KA18782
-                var test: google.maps.Map = s.originalMap;
-                viewModel.originalMap = test;
+                viewModel.originalMap = s.originalMap;
                 viewModel.isMapReady(true);
             }
         }
@@ -65,6 +64,63 @@ module MyExtremeApp {
                     var oMap: google.maps.Map = viewModel.originalMap;
 
                     var blub: number = oMap.getZoom();
+                }
+
+                var oMap: google.maps.Map = viewModel.originalMap;
+
+                for (var i = 0; i < x.PositionDataMobile.regions.length; i++) {
+                    var k = x.PositionDataMobile.regions[i];
+
+                    var polygonCoords = [];
+                    
+                    for (var c = 0; c < k.coordinates.length; c++) {
+                        var point = k.coordinates[c];
+                        var oLatLng: google.maps.LatLng = new google.maps.LatLng(point.lat, point.lng);
+                        polygonCoords.push(oLatLng);
+                    }
+
+                    // Construct the polygon.
+                    var myPolygon: google.maps.Polygon = new google.maps.Polygon({
+                        paths: polygonCoords,
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.35,
+                        name: k.name
+                    });
+
+                    // Add a listener for the click event.
+                    google.maps.event.addListener(myPolygon, 'click', showArrays);
+
+                    myPolygon.setMap(oMap);
+
+
+
+                    var infoWindow = new google.maps.InfoWindow();
+                }
+
+                function showArrays(event) {
+
+                    // Since this polygon has only one path, we can call getPath()
+                    // to return the MVCArray of LatLngs.
+                    var vertices = this.getPath();
+
+                    var contentString = '<b>' + this.name + '</b>';
+
+                    //// Iterate over the vertices.
+                    //for (var i = 0; i < vertices.getLength(); i++) {
+                    //    var xy = vertices.getAt(i);
+                    //    contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
+                    //    xy.lng();
+                    //}
+
+                    // Replace the info window's content and position.
+                    infoWindow.setContent(contentString);
+                    infoWindow.setPosition(event.latLng);
+
+                    var oMap: google.maps.Map = viewModel.originalMap;
+                    infoWindow.open(oMap);
                 }
             }
         })
