@@ -49,12 +49,12 @@ module MyExtremeApp {
                     var sContent = k.info.content;
                     //var sContent: any = '<div id=&quot;content&quot; style=&quot;width:300px; height:50px;&quot;>' + k.info.title + '<br />Zeit: 20.03.2015 12:06:16</div>';
                     sContent = replaceAll('&quot;', '"', sContent);
-                    
+
                     viewModel.mapMarkers.push({
                         title: 'test',
                         tooltip: { text: sContent, isShown: false },
                         location: mapPosition,
-                        iconSrc: {url: img},
+                        iconSrc: { url: img },
                         clickAction: function () {
                             DevExpress.ui.notify("Marker 'C' clicked!", "info", 1000);
                         }
@@ -72,7 +72,7 @@ module MyExtremeApp {
                     var k = x.PositionDataMobile.regions[i];
 
                     var polygonCoords = [];
-                    
+
                     for (var c = 0; c < k.coordinates.length; c++) {
                         var point = k.coordinates[c];
                         var oLatLng: google.maps.LatLng = new google.maps.LatLng(point.lat, point.lng);
@@ -106,7 +106,7 @@ module MyExtremeApp {
                     // to return the MVCArray of LatLngs.
                     var vertices = this.getPath();
 
-                    var contentString = '<b>' + this.name + '</b>';
+                    var contentString = '<div style="width: 200px; height: auto;">' + this.name + '</div>';
 
                     //// Iterate over the vertices.
                     //for (var i = 0; i < vertices.getLength(); i++) {
@@ -116,8 +116,11 @@ module MyExtremeApp {
                     //}
 
                     // Replace the info window's content and position.
-                    infoWindow.setContent(contentString);
-                    infoWindow.setPosition(event.latLng);
+                    var bla: google.maps.InfoWindowOptions;
+
+                    var myObj: google.maps.InfoWindowOptions = { maxWidth: 250, position: event.latLng, content: contentString };
+
+                    infoWindow.setOptions(myObj);
 
                     var oMap: google.maps.Map = viewModel.originalMap;
                     infoWindow.open(oMap);
