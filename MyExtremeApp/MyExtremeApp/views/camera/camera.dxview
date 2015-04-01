@@ -1,0 +1,5 @@
+<div data-options="dxView : { name: 'camera', title: 'camera' } " >
+    <div  data-options="dxContent : { targetPlaceholder: 'content' } " >
+        <button onclick="capturePhoto();">Capture Photo</button> <br>
+    </div>
+</div>

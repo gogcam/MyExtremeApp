@@ -20,19 +20,14 @@ window.MyExtremeApp = $.extend(true, window.MyExtremeApp, {
         "icon": "preferences"
       },
       {
-        "title": "DynTabTest",
-        "onExecute": "#DynTabTest",
-        "icon": "bookmark"
-      },
-      {
-          "title": "TabTest",
-          "onExecute": "#TabTest",
-          "icon": "bookmark"
-      },
-      {
         "title": "map",
         "onExecute": "#map",
         "icon": "map"
+      },
+      {
+        "title": "camera",
+        "onExecute": "#camera",
+        "icon": "camera"
       }
     ],
     "commandMapping": {

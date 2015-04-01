@@ -15,6 +15,13 @@
     <TemplateFileApk />
     <UseCustomTemplateNameApk>False</UseCustomTemplateNameApk>
     <KeyDebuggable>False</KeyDebuggable>
+    <ScreenOrientation>Default</ScreenOrientation>
+    <ApplicationTitle>MyExtremeApp</ApplicationTitle>
+    <VersionPackage>1.0.0.0</VersionPackage>
+    <ShowSplashScreen>False</ShowSplashScreen>
+    <PhoneGapTokenKey />
+    <XapPackagePublisherID>{a0031f6a-3429-4f65-93d0-21fcefaf7a4a}</XapPackagePublisherID>
+    <XapPackageProductID>{46372adb-4773-4953-a614-6b1ad3e2ecc7}</XapPackageProductID>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +42,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="js\localization\localization.default.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\camera\camera.dxview">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\GPSSystems.dxview">
@@ -137,6 +147,8 @@
     <Content Include="views\home.css" />
     <TypeScriptCompile Include="ts\google.maps.d.ts" />
     <TypeScriptCompile Include="ts\knockout.mappings.d.ts" />
+    <TypeScriptCompile Include="ts\phonegap.d.ts" />
+    <TypeScriptCompile Include="views\camera\camera.ts" />
     <TypeScriptCompile Include="views\GPSSystems.ts" />
     <TypeScriptCompile Include="views\home.ts" />
     <Content Include="views\about.html" />
@@ -168,6 +180,7 @@
     <Folder Include="ts\" />
     <Folder Include="views\" />
     <Folder Include="views\map" />
+    <Folder Include="views\camera" />
     <Folder Include="views\tabviews" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
