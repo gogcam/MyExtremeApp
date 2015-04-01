@@ -23,6 +23,21 @@ module MyExtremeApp {
             viewModel.isDataReady(true);
         });
 
+        function showArrays(event) {
+            var contentString = '<div style="width: 200px; height: auto;">' + this.name + '</div>';
+
+            // Replace the info window's content and position.
+            var bla: google.maps.InfoWindowOptions;
+
+            var myObj: google.maps.InfoWindowOptions = { maxWidth: 250, position: event.latLng, content: contentString };
+
+            var infoWindow = new google.maps.InfoWindow();
+            infoWindow.setOptions(myObj);
+
+            var oMap: google.maps.Map = viewModel.originalMap;
+            infoWindow.open(oMap);
+        }
+
         var test = ko.computed(() => {
             if (viewModel.isMapReady() && viewModel.isDataReady()) {
                 var x = MyGlobals.oMapManager.mydata;
@@ -59,11 +74,6 @@ module MyExtremeApp {
                             DevExpress.ui.notify("Marker 'C' clicked!", "info", 1000);
                         }
                     });
-
-
-                    var oMap: google.maps.Map = viewModel.originalMap;
-
-                    var blub: number = oMap.getZoom();
                 }
 
                 var oMap: google.maps.Map = viewModel.originalMap;
@@ -94,36 +104,6 @@ module MyExtremeApp {
                     google.maps.event.addListener(myPolygon, 'click', showArrays);
 
                     myPolygon.setMap(oMap);
-
-
-
-                    var infoWindow = new google.maps.InfoWindow();
-                }
-
-                function showArrays(event) {
-
-                    // Since this polygon has only one path, we can call getPath()
-                    // to return the MVCArray of LatLngs.
-                    var vertices = this.getPath();
-
-                    var contentString = '<div style="width: 200px; height: auto;">' + this.name + '</div>';
-
-                    //// Iterate over the vertices.
-                    //for (var i = 0; i < vertices.getLength(); i++) {
-                    //    var xy = vertices.getAt(i);
-                    //    contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
-                    //    xy.lng();
-                    //}
-
-                    // Replace the info window's content and position.
-                    var bla: google.maps.InfoWindowOptions;
-
-                    var myObj: google.maps.InfoWindowOptions = { maxWidth: 250, position: event.latLng, content: contentString };
-
-                    infoWindow.setOptions(myObj);
-
-                    var oMap: google.maps.Map = viewModel.originalMap;
-                    infoWindow.open(oMap);
                 }
             }
         })
