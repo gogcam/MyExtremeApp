@@ -12,16 +12,21 @@
     <KeyApkAlias>tmpl</KeyApkAlias>
     <ApkDexFilePackageName>com.devextreme.MyExtremeApp</ApkDexFilePackageName>
     <VersionCode>1</VersionCode>
-    <TemplateFileApk />
-    <UseCustomTemplateNameApk>False</UseCustomTemplateNameApk>
+    <TemplateFileApk>templates\ApplicationTemplate.apk</TemplateFileApk>
+    <UseCustomTemplateNameApk>True</UseCustomTemplateNameApk>
     <KeyDebuggable>False</KeyDebuggable>
     <ScreenOrientation>Default</ScreenOrientation>
     <ApplicationTitle>MyExtremeApp</ApplicationTitle>
     <VersionPackage>1.0.0.0</VersionPackage>
     <ShowSplashScreen>False</ShowSplashScreen>
-    <PhoneGapTokenKey />
+    <PhoneGapTokenKey>DPyJsDGz15RQEQXunMoM</PhoneGapTokenKey>
     <XapPackagePublisherID>{a0031f6a-3429-4f65-93d0-21fcefaf7a4a}</XapPackagePublisherID>
     <XapPackageProductID>{46372adb-4773-4953-a614-6b1ad3e2ecc7}</XapPackageProductID>
+    <DebugSitePortNumber>50000</DebugSitePortNumber>
+    <UseWebDev>False</UseWebDev>
+    <DefaultDevice>androidPhone</DefaultDevice>
+    <DeviceOrientation>Portrait</DeviceOrientation>
+    <DisplayUnhandledExceptions>True</DisplayUnhandledExceptions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +49,9 @@
     <Content Include="js\localization\localization.default.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="js\PushNotification.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="views\camera\camera.dxview">
       <SubType>Content</SubType>
     </Content>
@@ -51,6 +59,13 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\map\map.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\notification\notification.dxview">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\notification\notification.dxview" />
+    <Content Include="views\notification\notification.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\TabTest.dxview">
@@ -81,6 +96,7 @@
     <None Include="Resources\PackageIcons.Android.ic_launcher_48_48.png" />
     <None Include="Resources\PackageIcons.Android.ic_launcher_72_72.png" />
     <None Include="Resources\PackageIcons.Android.ic_launcher_96_96.png" />
+    <None Include="templates\ApplicationTemplate.apk" />
     <TypeScriptCompile Include="data\db.ts" />
     <TypeScriptCompile Include="data\Globals.ts" />
     <TypeScriptCompile Include="data\GPSSystemManager.ts" />
@@ -177,10 +193,12 @@
     <Folder Include="layouts\Split\" />
     <Folder Include="data" />
     <Folder Include="Resources\" />
+    <Folder Include="templates\" />
     <Folder Include="ts\" />
     <Folder Include="views\" />
     <Folder Include="views\map" />
     <Folder Include="views\camera" />
+    <Folder Include="views\notification" />
     <Folder Include="views\tabviews" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

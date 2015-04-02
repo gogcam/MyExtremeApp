@@ -28,6 +28,11 @@ window.MyExtremeApp = $.extend(true, window.MyExtremeApp, {
         "title": "camera",
         "onExecute": "#camera",
         "icon": "camera"
+      },
+      {
+        "title": "notification",
+        "onExecute": "#notification",
+        "icon": "notification"
       }
     ],
     "commandMapping": {

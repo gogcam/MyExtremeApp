@@ -13,15 +13,16 @@ var destinationType; // sets the format of returned value
 
 function onPhotoDataSuccess(imageData) {
     // Uncomment to view the base64 encoded image data
-    // console.log(imageData);
+    console.log(imageData);
 
+    alert('Took photo -> Success');
     // Get image handle
     //
-    var smallImage = document.getElementById('smallImage');
+    //var smallImage = document.getElementById('smallImage');
 
     // Unhide image elements
     //
-    smallImage.style.display = 'block';
+    //smallImage.style.display = 'block';
 
     // Show the captured photo
     // The inline CSS rules are used to resize the image
@@ -37,8 +38,6 @@ function capturePhoto() {
         alert('NO camera found');
         return;
     } 
-
-
 
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 50,
